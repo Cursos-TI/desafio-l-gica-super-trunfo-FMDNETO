@@ -29,7 +29,7 @@ int main()
     printf("Digite a quantidade de Pontos Turisticos da cidade: ");
     scanf("%d", &pturismo1);
     denspop1 = populacao1 / area1; //CÁLCULO DA DENSIDADE POPULACIONAL - DESAFIO AVENTUREIRO
-    pibpercapita1 = pib1 / populacao1; //CÁLCULO DO PIB PER CAPITA - DESAFIO AVENTUREIRO
+    pibpercapita1 = pib1 / (float)populacao1; //CÁLCULO DO PIB PER CAPITA - DESAFIO AVENTUREIRO
 
     //INICIALIZANDO VARIAVEIS DA SEGUNDA CARTA
     printf("Digite o nome do estado da segunda carta: ");
@@ -47,7 +47,7 @@ int main()
     printf("Digite a quantidade de Pontos Turisticos da cidade: ");
     scanf("%d", &pturismo2);
     denspop2 = populacao2 / area2; //CÁLCULO DA DENSIDADE POPULACIONAL - DESAFIO AVENTUREIRO
-    pibpercapita2 = pib2 / populacao2; //CÁLCULO DO PIB PER CAPITA - DESAFIO AVENTUREIRO
+    pibpercapita2 = pib2 / (float)populacao2; //CÁLCULO DO PIB PER CAPITA - DESAFIO AVENTUREIRO
 
     //DESAFIO MESTRE - CALCULO DO SUPER PODER
     superpoder1 = (populacao1+area1+pturismo1+pibpercapita1+(1/denspop1));
