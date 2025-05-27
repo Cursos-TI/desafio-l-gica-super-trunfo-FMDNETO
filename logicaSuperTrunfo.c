@@ -5,6 +5,7 @@
 int main()
     {
     //DECLARANDO VARIAVEIS
+    int opcao; //VARIAVEL PARA ESCOLHER A OPÇÃO DE VERIFICAR A CARTA VENCEDORA
     char estado1[20], estado2[20], codigocarta1[20], codigocarta2[20], nomecidade1[20], nomecidade2[20];
     unsigned long int populacao1, populacao2; //POPULAÇÃO COMO UNSIGNED LONG INT - DESAFIO MESTRE
     int pturismo1, pturismo2; //MODIFICAÇÃO FEITA NO DESAFIO MESTRE
@@ -84,67 +85,111 @@ int main()
     printf("Pib per capita: R$ %.2f\n", pibpercapita2); //EXIBINDO O PIB PER CAPITA - DESAFIO AVENTUREIRO
 
     //DESAFIO MESTRE - VERIFICANDO A CARTA VENCEDORA
-    printf("------------------------------------\n");
+    printf("-------------------------------------\n");
     printf("----VERIFICANDO A CARTA VENCEDORA----\n");
-    printf("------------------------------------\n");
-    //DESAFIO INICIANTE - LÓGICA EM C
-    //POPULACAO
-    if (populacao1 > populacao2) {
-        printf("A primeira carta vence na Populacao!\n");
-    } else if (populacao2 > populacao1) {
-        printf("A segunda carta vence na Populacao!\n");
-    } else {
-        printf("As cartas empatam na Populacao!\n");
+    printf("-------------------------------------\n");
+    printf("DIGITE A OPCAO PARA JOGAR:\n");
+    printf("1 - Populacao\n");
+    printf("2 - Area\n");
+    printf("3 - PIB\n");
+    printf("4 - Pontos Turisticos\n");
+    printf("5 - Densidade Populacional\n");
+    printf("6 - PIB per capita\n");
+    printf("7 - Super Poder\n");
+    scanf("%d", &opcao);
+
+    //VERIFICANDO A OPÇÃO ESCOLHIDA
+    switch(opcao) {
+        case 1:
+            printf("Você escolheu Populacao!\n");
+            break;
+        case 2:
+            printf("Você escolheu Area!\n");
+            break;
+        case 3:
+            printf("Você escolheu PIB!\n");
+            break;
+        case 4:
+            printf("Você escolheu Pontos Turisticos!\n");
+            break;
+        case 5:
+            printf("Você escolheu Densidade Populacional!\n");
+            break;
+        case 6:
+            printf("Você escolheu PIB per capita!\n");
+            break;
+        case 7:
+            printf("Você escolheu Super Poder!\n");
+            break;
+        default:
+            printf("Opção inválida! Tente novamente.\n");
+            return 1; // Encerrar o programa se a opção for inválida
     }
-    //AREA
-    if (area1 > area2) {
-        printf("A primeira carta vence na Area!\n");
-    } else if (area2 > area1) {
-        printf("A segunda carta vence na Area!\n");
-    } else {
-        printf("As cartas empatam na Area!\n");
+    //EXIBINDO A CARTA VENCEDORA
+    printf("A carta vencedora é:\n");
+    switch(opcao) {
+        case 1:
+            if (populacao1 > populacao2) {
+                printf("A primeira carta vence na Populacao!\nPopulação da carta %s: %li vs População da carta %s: %li", estado1, populacao1, estado2, populacao2);
+            } else if (populacao2 > populacao1) {
+                printf("A segunda carta vence na Populacao!\nPopulação da carta %s: %li vs População da carta %s: %li", estado2, populacao2, estado1, populacao1);
+            } else {
+                printf("As cartas empatam na Populacao!\n");
+            }
+            break;
+        case 2:
+            if (area1 > area2) {
+                printf("A primeira carta vence na Area!\nArea da carta %s: %.2f vs Area da carta %s: %.2f", estado1, area1, estado2, area2);
+            } else if (area2 > area1) {
+                printf("A segunda carta vence na Area!\nArea da carta %s: %.2f vs Area da carta %s: %.2f", estado2, area2, estado1, area1);
+            } else {
+                printf("As cartas empatam na Area!\n");
+            }
+            break;
+        case 3:
+            if (pib1 > pib2) {
+                printf("A primeira carta vence no PIB!\nPIB da carta %s: R$ %.2f BILHÕES vs PIB da carta %s: R$ %.2f BILHÕES", estado1, pib1, estado2, pib2);
+            } else if (pib2 > pib1) {
+                printf("A segunda carta vence no PIB!\nPIB da carta %s: R$ %.2f BILHÕES vs PIB da carta %s: R$ %.2f BILHÕES", estado2, pib2, estado1, pib1);
+            } else {
+                printf("As cartas empatam no PIB!\n");
+            }
+            break;
+        case 4:
+            if (pturismo1 > pturismo2) {
+                printf("A primeira carta vence nos Pontos Turisticos!\nPontos Turisticos da carta %s: %d vs Pontos Turisticos da carta %s: %d", estado1, pturismo1, estado2, pturismo2);
+            } else if (pturismo2 > pturismo1) {
+                printf("A segunda carta vence nos Pontos Turisticos!\nPontos Turisticos da carta %s: %d vs Pontos Turisticos da carta %s: %d", estado2, pturismo2, estado1, pturismo1);
+            } else {
+                printf("As cartas empatam nos Pontos Turisticos!\n");
+            }
+            break;
+        case 5:
+            if (denspop1 > denspop2) {
+                printf("A primeira carta vence na Densidade Populacional!\nDensidade Populacional da carta %s: %.2f vs Densidade Populacional da carta %s: %.2f", estado1, denspop1, estado2, denspop2);
+            } else if (denspop2 > denspop1) {
+                printf("A segunda carta vence na Densidade Populacional!\nDensidade Populacional da carta %s: %.2f vs Densidade Populacional da carta %s: %.2f", estado2, denspop2, estado1, denspop1);
+            } else {
+                printf("As cartas empatam na Densidade Populacional!\n");
+            }
+            break;
+        case 6:
+            if (pibpercapita1 > pibpercapita2) {
+                printf("A primeira carta vence no PIB per capita!\nPIB per capita da carta %s: R$ %.2f vs PIB per capita da carta %s: R$ %.2f", estado1, pibpercapita1, estado2, pibpercapita2);
+            } else if (pibpercapita2 > pibpercapita1) {
+                printf("A segunda carta vence no PIB per capita!\nPIB per capita da carta %s: R$ %.2f vs PIB per capita da carta %s: R$ %.2f", estado2, pibpercapita2, estado1, pibpercapita1);
+            } else {
+                printf("As cartas empatam no PIB per capita!\n");
+            }
+            break;
+        case 7:
+            if (superpoder1 > superpoder2) {
+                printf("A primeira carta vence no Super Poder!\nSuper Poder da carta %s: %.2f vs Super Poder da carta %s: %.2f", estado1, superpoder1, estado2, superpoder2);
+            } else if (superpoder2 > superpoder1) {
+                printf("A segunda carta vence no Super Poder!\nSuper Poder da carta %s: %.2f vs Super Poder da carta %s: %.2f", estado2, superpoder2, estado1, superpoder1);
+            } else {
+                printf("As cartas empatam no Super Poder!\n");
+            }
+            break;
     }
-    //PIB
-    if (pib1 > pib2) {
-        printf("A primeira carta vence no PIB!\n");
-    } else if (pib2 > pib1) {
-        printf("A segunda carta vence no PIB!\n");
-    } else {
-        printf("As cartas empatam no PIB!\n");
-    }
-    //PONTOS TURISTICOS
-    if (pturismo1 > pturismo2) {
-        printf("A primeira carta vence nos Pontos Turisticos!\n");
-    } else if (pturismo2 > pturismo1) {
-        printf("A segunda carta vence nos Pontos Turisticos!\n");
-    } else {
-        printf("As cartas empatam nos Pontos Turisticos!\n");
-    }
-    //DENSIDADE POPULACIONAL
-    if (denspop1 > denspop2) {
-        printf("A primeira carta vence na Densidade Populacional!\n");
-    } else if (denspop2 > denspop1) {
-        printf("A segunda carta vence na Densidade Populacional!\n");
-    } else {
-        printf("As cartas empatam na Densidade Populacional!\n");
-    }
-    //PIB PER CAPITA
-    if (pibpercapita1 > pibpercapita2) {
-        printf("A primeira carta vence no PIB per capita!\n");
-    } else if (pibpercapita2 > pibpercapita1) {
-        printf("A segunda carta vence no PIB per capita!\n");
-    } else {
-        printf("As cartas empatam no PIB per capita!\n");
-    }
-    //SUPER PODER
-    if (superpoder1 > superpoder2) {
-        printf("A primeira carta vence no Super Poder!\n");
-    } else if (superpoder2 > superpoder1) {
-        printf("A segunda carta vence no Super Poder!\n");
-    } else {
-        printf("As cartas empatam no Super Poder!\n");
-    }
-    //FIM DO DESAFIO INICIANTE
-    return 0;
-    //FIM DO PROGRAMA
-    }
+    //FIM DO DESAFIO AVENTUREIRO
