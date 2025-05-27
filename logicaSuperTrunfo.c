@@ -192,4 +192,5 @@ int main()
             }
             break;
     }
+    }
     //FIM DO DESAFIO AVENTUREIRO
